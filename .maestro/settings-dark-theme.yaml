@@ -1,6 +1,10 @@
 appId: com.android.settings
 ---
 - launchApp
+- scrollUntilVisible:
+    element:
+      text: "Display & touch"
+    direction: DOWN
 - assertVisible: "Display & touch"
 - tapOn: "Display & touch"
 - assertVisible: "Dark theme"
