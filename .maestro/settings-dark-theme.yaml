@@ -5,29 +5,29 @@ appId: com.android.settings
 - tapOn: "Display & touch"
 - assertVisible: "Dark theme"
 
-# Başlangıç: Dark theme kapalı
+# Initial state: Dark theme is disabled
 - assertVisible:
     id: "com.android.settings:id/switchWidget"
     text: "Dark theme"
     checked: false
 
-# Dark theme aç
+# Enable Dark theme
 - tapOn:
     id: "com.android.settings:id/switchWidget"
     index: 0
 
-# Dark theme açık mı?
+# Verify Dark theme is enabled
 - assertVisible:
     id: "com.android.settings:id/switchWidget"
     text: "Dark theme"
     checked: true
 
-# Dark theme kapat
+# Disable Dark theme
 - tapOn:
     id: "com.android.settings:id/switchWidget"
     index: 0
 
-# Dark theme tekrar kapalı mı?
+# Verify Dark theme is disabled again
 - assertVisible:
     id: "com.android.settings:id/switchWidget"
     text: "Dark theme"
