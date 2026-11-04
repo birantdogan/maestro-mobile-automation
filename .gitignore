@@ -14,3 +14,6 @@
 .DS_Store
 Thumbs.db
 .vscode/
+
+# VS Code workspace files
+*.code-workspace
