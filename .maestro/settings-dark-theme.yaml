@@ -1,8 +1,14 @@
 appId: com.android.settings
 ---
 - launchApp
-- assertVisible: "Display & touch"
-- tapOn: "Display & touch"
+- scrollUntilVisible:
+    element:
+      text: "Display.*"
+    direction: DOWN
+- assertVisible:
+    text: "Display.*"
+- tapOn:
+    text: "Display.*"
 - assertVisible: "Dark theme"
 
 # Initial state: Dark theme is disabled
