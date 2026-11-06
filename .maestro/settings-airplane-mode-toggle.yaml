@@ -1,0 +1,36 @@
+appId: com.android.settings
+---
+- launchApp
+
+# Navigate to Network & internet
+- tapOn: "Network & internet"
+
+# Verify Airplane mode option
+- assertVisible: "Airplane mode"
+# Ensure Airplane mode is initially disabled
+- runFlow:
+    when:
+      visible:
+        id: "com.android.settings:id/switchWidget"
+        checked: true
+    commands:
+      - tapOn: "Airplane mode"
+
+- assertVisible:
+    id: "com.android.settings:id/switchWidget"
+    checked: false
+# Enable Airplane mode
+- tapOn: "Airplane mode"
+
+# Verify Airplane mode is enabled
+- assertVisible:
+    id: "com.android.settings:id/switchWidget"
+    checked: true
+
+# Disable Airplane mode
+- tapOn: "Airplane mode"
+
+# Verify Airplane mode is disabled
+- assertVisible:
+    id: "com.android.settings:id/switchWidget"
+    checked: false

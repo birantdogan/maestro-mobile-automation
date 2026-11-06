@@ -1,0 +1,25 @@
+appId: com.android.settings
+---
+- launchApp
+
+# Navigate to Battery settings
+- scrollUntilVisible:
+    element:
+      text: "Battery"
+    direction: DOWN
+
+- assertVisible: "Battery"
+
+- tapOn: "Battery"
+
+# Verify Battery settings screen
+- assertVisible: "Battery"
+
+# Verify battery level is displayed
+- assertVisible:
+    id: "com.android.settings:id/usage_summary"
+
+# Verify battery settings options
+- assertVisible: "Battery usage"
+- assertVisible: "Battery Saver"
+- assertVisible: "Battery percentage"

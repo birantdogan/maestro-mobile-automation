@@ -1,0 +1,26 @@
+appId: com.android.settings
+---
+- launchApp
+
+# Navigate to Display settings
+- scrollUntilVisible:
+      element:
+          text: "Display.*"
+      direction: DOWN
+
+- assertVisible:
+      text: "Display.*"
+
+- tapOn:
+      text: "Display.*"
+
+# Verify Display settings screen
+- assertVisible: "Dark theme"
+
+# Verify Display settings options
+- assertVisible: "Brightness level"
+- assertVisible: "Lock screen"
+- assertVisible: "Screen timeout"
+- assertVisible: "Display size & text"
+- assertVisible: "Navigation mode"
+- assertVisible: "Screen saver"
