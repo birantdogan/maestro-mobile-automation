@@ -1,0 +1,29 @@
+appId: com.android.settings
+---
+- launchApp
+
+# Navigate to Sound settings
+- scrollUntilVisible:
+    element:
+      text: "Sound.*"
+    direction: DOWN
+
+- assertVisible:
+    text: "Sound.*"
+
+- tapOn:
+    text: "Sound.*"
+
+# Verify Sound settings screen
+- assertVisible:
+    text: "Sound.*"
+
+# Verify Sound & vibration settings options
+- assertVisible: "Audio will play on"
+- assertVisible: "Media volume"
+- assertVisible: "Call volume"
+- assertVisible: "Ring volume"
+- assertVisible: "Notification volume"
+- assertVisible: "Alarm volume"
+- assertVisible: "Assistant volume"
+- assertVisible: "Vibration & haptics"

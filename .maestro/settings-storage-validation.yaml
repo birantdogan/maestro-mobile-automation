@@ -1,0 +1,26 @@
+appId: com.android.settings
+---
+- launchApp
+
+# Navigate to Storage settings
+- scrollUntilVisible:
+    element:
+      text: "Storage"
+    direction: DOWN
+
+- assertVisible: "Storage"
+
+- tapOn: "Storage"
+
+# Verify Storage settings screen
+- assertVisible: "Storage"
+
+- assertVisible: "This device"
+- assertVisible: "Free up space"
+- assertVisible: "Apps"
+- assertVisible: "Documents"
+- assertVisible: "Images"
+- assertVisible: "Videos"
+- assertVisible: "Audio"
+- assertVisible: "Games"
+- assertVisible: "Other"

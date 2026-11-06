@@ -1,0 +1,21 @@
+appId: com.android.settings
+---
+- launchApp
+
+# Scroll until Security & privacy is visible
+- scrollUntilVisible:
+    element:
+      text: "Security & privacy"
+    direction: DOWN
+
+# Navigate to Security & privacy
+- tapOn: "Security & privacy"
+
+# Verify security section
+- assertVisible: "Security"
+- assertVisible: "App security"
+
+# Verify additional security options
+- assertVisible: "Device unlock"
+- assertVisible: "Account security"
+- assertVisible: "Lost device protection"
