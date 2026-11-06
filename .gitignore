@@ -17,3 +17,6 @@ Thumbs.db
 
 # VS Code workspace files
 *.code-workspace
+
+# Generated test reports
+report.html

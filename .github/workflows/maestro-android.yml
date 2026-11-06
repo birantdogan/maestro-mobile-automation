@@ -22,7 +22,7 @@ jobs:
           sudo udevadm trigger --name-match=kvm
 
       - name: Set up Java
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@v5
         with:
           distribution: temurin
           java-version: "17"
@@ -39,8 +39,16 @@ jobs:
           target: google_apis
           arch: x86_64
           profile: pixel_6
-          emulator-options: -no-window -no-audio -no-boot-anim -gpu swiftshader_indirect -no-metrics -memory 2048 -cores 2
-          script: maestro test .maestro/
+          emulator-options: -no-window -no-audio -no-boot-anim -gpu swiftshader_indirect -no-metrics -memory 4096 -cores 2
+          script: maestro test --format HTML-DETAILED --output report.html .maestro/
+
+      - name: Upload Maestro HTML report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: maestro-html-report
+          path: report.html
+          if-no-files-found: warn
 
       - name: Upload Maestro debug artifacts
         if: failure()
