@@ -35,7 +35,7 @@ jobs:
       - name: Run Maestro tests on Android emulator
         uses: reactivecircus/android-emulator-runner@v2
         with:
-          api-level: 37
+          api-level: "37.0"
           target: google_apis_playstore
           arch: x86_64
           profile: pixel_6
