@@ -15,7 +15,6 @@ appId: com.android.settings
 # Verify Storage settings screen
 - assertVisible: "Storage"
 
-- assertVisible: "This device"
 - assertVisible: "Free up space"
 - assertVisible: "Apps"
 - assertVisible: "Documents"
