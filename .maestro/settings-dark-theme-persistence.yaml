@@ -1,0 +1,69 @@
+appId: com.android.settings
+---
+- launchApp:
+    clearState: true
+
+# Navigate to Display settings
+- scrollUntilVisible:
+    element:
+      text: "Display.*"
+    direction: DOWN
+
+- tapOn:
+    text: "Display.*"
+
+# Ensure Dark theme is initially disabled
+- runFlow:
+    when:
+      visible:
+        id: "com.android.settings:id/switchWidget"
+        text: "Dark theme"
+        checked: true
+    commands:
+      - tapOn:
+          id: "com.android.settings:id/switchWidget"
+          text: "Dark theme"
+
+- assertVisible:
+    id: "com.android.settings:id/switchWidget"
+    text: "Dark theme"
+    checked: false
+
+# Enable Dark theme
+- tapOn:
+    id: "com.android.settings:id/switchWidget"
+    text: "Dark theme"
+
+- assertVisible:
+    id: "com.android.settings:id/switchWidget"
+    text: "Dark theme"
+    checked: true
+
+# Close and reopen Settings
+- stopApp
+- launchApp
+
+# Navigate back to Display settings
+- scrollUntilVisible:
+    element:
+      text: "Display.*"
+    direction: DOWN
+
+- tapOn:
+    text: "Display.*"
+
+# Verify Dark theme state persists
+- assertVisible:
+    id: "com.android.settings:id/switchWidget"
+    text: "Dark theme"
+    checked: true
+
+# Restore Dark theme to disabled
+- tapOn:
+    id: "com.android.settings:id/switchWidget"
+    text: "Dark theme"
+
+- assertVisible:
+    id: "com.android.settings:id/switchWidget"
+    text: "Dark theme"
+    checked: false

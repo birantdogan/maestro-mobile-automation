@@ -1,6 +1,7 @@
 appId: com.android.settings
 ---
-- launchApp
+- launchApp:
+    clearState: true
 - assertVisible: "Network & internet"
 - tapOn: "Network & internet"
 - assertVisible: "Internet"

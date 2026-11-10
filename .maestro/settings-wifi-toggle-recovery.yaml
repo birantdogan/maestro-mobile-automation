@@ -1,0 +1,49 @@
+appId: com.android.settings
+---
+- launchApp:
+    clearState: true
+
+# Navigate to Internet settings
+- tapOn: "Network & internet"
+- tapOn: "Internet"
+
+# Ensure Wi-Fi is initially enabled
+- runFlow:
+    when:
+      visible:
+        id: "com.android.settings:id/switchWidget"
+        checked: false
+    commands:
+      - tapOn:
+          id: "com.android.settings:id/switchWidget"
+
+# Verify Wi-Fi is enabled
+- assertVisible:
+    id: "com.android.settings:id/switchWidget"
+    checked: true
+
+# Verify initial connection
+- assertVisible: "AndroidWifi"
+- assertVisible: "Connected"
+
+# Disable Wi-Fi
+- tapOn:
+    id: "com.android.settings:id/switchWidget"
+
+# Verify Wi-Fi is disabled
+- assertVisible:
+    id: "com.android.settings:id/switchWidget"
+    checked: false
+
+# Re-enable Wi-Fi
+- tapOn:
+    id: "com.android.settings:id/switchWidget"
+
+# Verify Wi-Fi is enabled again
+- assertVisible:
+    id: "com.android.settings:id/switchWidget"
+    checked: true
+
+# Verify connection is restored
+- assertVisible: "AndroidWifi"
+- assertVisible: "Connected"

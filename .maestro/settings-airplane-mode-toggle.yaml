@@ -1,12 +1,13 @@
 appId: com.android.settings
 ---
-- launchApp
+- launchApp:
+    clearState: true
 
 # Navigate to Network & internet
 - tapOn: "Network & internet"
 
-# Verify Airplane mode option
 - assertVisible: "Airplane mode"
+
 # Ensure Airplane mode is initially disabled
 - runFlow:
     when:
@@ -19,6 +20,7 @@ appId: com.android.settings
 - assertVisible:
     id: "com.android.settings:id/switchWidget"
     checked: false
+
 # Enable Airplane mode
 - tapOn: "Airplane mode"
 
