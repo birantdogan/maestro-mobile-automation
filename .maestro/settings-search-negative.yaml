@@ -1,0 +1,17 @@
+appId: com.android.settings
+---
+- launchApp:
+    clearState: true
+
+# Open Settings search
+- tapOn:
+    id: "com.android.settings:id/search_action_bar"
+
+# Search for a non-existing setting
+- inputText: "xyznonexistent12345"
+
+# Submit search
+- pressKey: Enter
+
+# Verify no results message
+- assertVisible: "No results for xyznonexistent12345"

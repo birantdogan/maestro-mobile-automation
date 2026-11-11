@@ -1,0 +1,26 @@
+appId: com.android.settings
+---
+- launchApp:
+    clearState: true
+
+# Open Settings search
+- tapOn:
+    id: "com.android.settings:id/search_action_bar"
+
+# Search for Battery settings
+- inputText: "Battery"
+
+# Submit search using keyboard
+- pressKey: Enter
+
+# Verify search result
+- assertVisible: "Battery"
+
+# Open Battery settings from search results
+- tapOn:
+    id: "android:id/title"
+    text: "Battery"
+    index: 1
+
+# Verify Battery settings screen
+- assertVisible: "Battery Saver"

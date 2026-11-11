@@ -1,6 +1,7 @@
 appId: com.android.settings
 ---
-- launchApp
+- launchApp:
+    clearState: true
 
 # Navigate to Storage settings
 - scrollUntilVisible:
